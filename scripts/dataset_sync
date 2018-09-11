@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
 rsync -avzru --delete kpi@192.168.88.34:devel/roboarchive/roboarchive-broom/train .
+rsync -avzru --delete kpi@192.168.88.34:devel/roboarchive/labeling_tool/train-bbox .
