@@ -6,3 +6,4 @@ opencv-python==3.4.2.17
 matplotlib==2.2.3
 tensorboard==1.*
 pytest==3.7.2
+keras_retinanet==0.4.*
