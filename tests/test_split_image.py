@@ -1,7 +1,7 @@
 import pytest
 import numpy as np
 
-from split_image import slice_tile
+from common.split_image import slice_tile
 
 
 @pytest.fixture

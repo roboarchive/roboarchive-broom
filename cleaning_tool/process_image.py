@@ -5,9 +5,9 @@ import numpy as np
 
 import cv2
 from cnn import get_cnn
-from split_image import slice_tile
+from common.split_image import slice_tile
 from train_cnn import add_common_arguments, configure_backend
-from utils import display
+from common.utils import display
 
 
 class FileProcessor:

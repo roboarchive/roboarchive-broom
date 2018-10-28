@@ -2,13 +2,13 @@ import os
 import pickle
 import random
 from glob import glob
-from itertools import chain, cycle
+from itertools import chain
 
 import numpy as np
 from keras.preprocessing.image import ImageDataGenerator
 
 import cv2
-from split_image import slice_tile
+from common.split_image import slice_tile
 
 VALIDATION_RATE = 8
 SAME_RATE = 7
