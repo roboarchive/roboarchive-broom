@@ -19,3 +19,10 @@ python3.6 train_cnn.py
 ```bash
 tensorboard --logdir tensorboard_log --reload_interval 1
 ```
+
+
+## copy training data
+
+```bash
+gsutil -m cp -nr gs://robo-broom/data/train/ .
+```
