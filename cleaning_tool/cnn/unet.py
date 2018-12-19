@@ -11,8 +11,6 @@ from keras.layers import (
 from keras.models import Input, Model
 from keras import optimizers
 
-import cv2
-
 from .base_cnn import BaseCNN
 
 

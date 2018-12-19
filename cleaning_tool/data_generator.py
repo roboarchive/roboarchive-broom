@@ -12,6 +12,8 @@ from common.split_image import slice_tile
 
 VALIDATION_RATE = 8
 SAME_RATE = 7
+TRAIN = os.environ.get('TRAIN_ROOT', 'train')
+CACHE = os.environ.get('CACHE', './')
 
 
 class XTileLoader:
@@ -125,9 +127,10 @@ dg = ImageDataGenerator(
 
 
 class PickledCache:
-    path = 'cache.pickle'
-
-    def __init__(self):
+    def init_cache(self, size):
+        if hasattr(self, 'dct'):
+            return
+        self.path = '{}/cache.{}.pickle'.format(CACHE, size)
         if not os.path.exists(self.path):
             self.dct = {}
         else:
@@ -135,6 +138,7 @@ class PickledCache:
                 self.dct = pickle.load(f)
 
     def check_size(self, size):
+        self.init_cache(size)
         _size = self.get('_size')
         if _size is None:
             self.set('_size', size)
@@ -279,8 +283,8 @@ class DataSource:
     def __init__(self, args, model):
         self.args = args
         self.model = model
-        self.src_dir = ['train/raw/samples', 'train/combined_raw']
-        self.dst_dir = ['train/clean/samples', 'train/combined_clean']
+        self.src_dir = [f'{TRAIN}/raw/samples', f'{TRAIN}/combined_raw']
+        self.dst_dir = [f'{TRAIN}/clean/samples', f'{TRAIN}/combined_clean']
         self.pure_images = []
         self.generated_images = []
         self.fill_pure_images()

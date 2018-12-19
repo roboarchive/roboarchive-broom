@@ -1,0 +1,12 @@
+image: roboarchive/runner:2
+
+variables:
+  TRAIN_ROOT: /train
+  CACHE: /robo_cache
+
+run:
+  stage: test
+  script:
+    - make label_clean_train
+  tags:
+    - gpu-pc-ci

@@ -1,0 +1,6 @@
+train
+gc_train
+__pycache__
+train_bbox
+venv
+weights
